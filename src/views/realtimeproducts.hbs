@@ -1,0 +1,37 @@
+<div class="container-fluid vh-100 d-flex flex-column justify-content-start">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 bg-white p-5 rounded-5 text-secondary shadow">
+            <div class="text-center fs-1 fw-bold mb-4">Real-Time Products</div>
+            <div class="product-list row justify-content-center">
+                {{#each products}}
+                <div class="product-item col-12 col-sm-6 col-md-4 col-lg-3 mb-3 p-2">
+                    <div class="product-content p-3 rounded shadow-sm bg-light">
+                        {{#if thumbnails}}
+                        <div class="d-flex justify-content-center mb-2">
+                            <img src="{{thumbnails.[0]}}" alt="{{title}}" class="img-fluid" style="max-height: 100px;">
+                        </div>
+                        {{/if}}
+                        <h3 class="text-center">{{title}}</h3>
+                        <p class="text-center">{{description}}</p>
+                        <p class="price text-center">${{price}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="pagination d-flex justify-content-between mt-4">
+                {{#if prevPageLink}}
+                <a href="{{prevPageLink}}" class="btn btn-secondary">Previous</a>
+                {{/if}}
+                {{#if nextPageLink}}
+                <a href="{{nextPageLink}}" class="btn btn-secondary">Next</a>
+                {{/if}}
+            </div>
+            <div class="mt-4 d-flex justify-content-between">
+                <a href="/api/auth/current" class="btn btn-primary">Current User</a>
+                <a href="/api/auth/logout" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/realtimeproducts.js"></script>

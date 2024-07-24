@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Products</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Products</h1>
+        <div class="product-list">
+            {{#each products}}
+            <div class="product-item">
+                {{#if thumbnails}}
+                <img src="{{thumbnails.[0]}}" alt="{{title}}">
+                {{/if}}
+                <h3>{{title}}</h3>
+                <p>{{description}}</p>
+                <p class="price">${{price}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="pagination">
+            {{#if prevPageLink}}
+            <a href="{{prevPageLink}}">Previous</a>
+            {{/if}}
+            {{#if nextPageLink}}
+            <a href="{{nextPageLink}}">Next</a>
+            {{/if}}
+        </div>
+    </div>
+    <script src="/js/realtimeproducts.js"></script>
+</body>
+</html>
+
+
